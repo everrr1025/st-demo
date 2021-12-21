@@ -2,7 +2,13 @@
   "name": "st-demo",
   "version": "1.0.0",
   "description": "demo of stJS",
-  "main": "index.js",
+  "main": "dev-server.js",
   "author": "everrr1025 <2037894@qq.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts":{
+    "start":"node dev-server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
