@@ -5,10 +5,11 @@
   "main": "dev-server.js",
   "author": "everrr1025 <2037894@qq.com>",
   "license": "MIT",
-  "scripts":{
-    "start":"node dev-server.js"
+  "scripts": {
+    "start": "vite"
   },
-  "dependencies": {
-    "express": "^4.17.2"
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^2.7.5"
   }
 }
