@@ -1,19 +1,16 @@
-import Scene  from './modules/Scene';
-import Instance  from './modules/Instance';
-import Action from './modules/Action';
+import house  from './scenes/house';
+import hongda from './instances/hongda';
+import jason from './instances/jason'
 
 
-var myHome = new Scene('hongda\'s home');
-var hongda = new Instance('hongda');
+house.registerInstances(hongda);
+house.registerInstances(jason)
 
-myHome.registerInstances(hongda);
 
-var haveDinnerAction = new Action({name:'haveDinner', perform:function(){
-    return 'having dinner'
-}})
+hongda.getSceneActions().powerOff.perform(hongda)
+console.log(house.properties.power)
 
-hongda.registerAction(haveDinnerAction);
+jason.getSceneActions().powerOn.perform(jason)
+console.log(house.properties.power)
 
-console.log(hongda.getActions().haveDinner.perform())
 
-console.log(hongda.getScene())
