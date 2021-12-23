@@ -1,16 +1,23 @@
 import house  from './scenes/house';
+import salon from './scenes/salon';
+import bedroom from './scenes/bedroom';
+//instance
 import hongda from './instances/hongda';
 import jason from './instances/jason'
 
 
-house.registerInstances(hongda);
-house.registerInstances(jason)
+house.registerScene(salon);
+house.registerScene(bedroom);//
+
+bedroom.registerInstances(hongda);
+salon.registerInstances(jason)
 
 
-hongda.getSceneActions().powerOff.perform(hongda)
-console.log(house.properties.power)
 
-jason.getSceneActions().powerOn.perform(jason)
-console.log(house.properties.power)
+var x = hongda.getSceneAction('powerOff')
+x.perform(hongda)
+
+// jason.getSceneActions().powerOn.perform(jason)
+// console.log(house.properties.power)
 
 

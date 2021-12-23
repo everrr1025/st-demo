@@ -13,5 +13,9 @@ export default function Action(properties){
         return _owner
     }
 
+    this.dispatchEvent = function(event) {
+        console.log(`[action - ${this.name}] dispatch ${event.name} event`)
+        event.go()
+    }
 
 }
