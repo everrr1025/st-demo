@@ -7,10 +7,11 @@ export default function Event(name){
         _listener.push(instance)
     }
 
-    this.go = function(){
+    //broadcast to all the instance who is listenering the event,
+    this.broadcast = function(){
         _listener.forEach(function(listener){
-        var event =   listener.getEvent(name);
-        event.do()
+        var callback=   listener.getEventCallback(name);
+        callback();
         })
     }
     

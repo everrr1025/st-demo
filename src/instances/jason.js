@@ -1,23 +1,17 @@
-import Scene  from '../modules/Scene';
-import Instance  from '../modules/Instance';
-import {move,speak} from '../actions/actions';
-import {dark} from '../events/events';
+import Scene from "../modules/Scene";
+import Human from "../modules/Human";
+import { move, speak } from "../actions/actions";
+import { dark } from "../events/events";
 
-
-var jason = new Instance('jason');
+var jason = new Human({ gender: "male", name: "jason" });
 
 //properties
 
-
 //actions
-jason.registerAction(move);
-jason.registerAction(speak);
-
-
-jason.registerEvent({event:dark, do:function(){console.log(`[instance - jason] dark event occurs, jasonn feel bad `)}})
 
 //events
-
-
+jason.registerEvent(dark, function () {
+  console.log(`[instance - jason] dark event occurs, jason feel bad `);
+});
 
 export default jason;
