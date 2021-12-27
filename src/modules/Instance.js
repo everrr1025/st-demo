@@ -1,15 +1,9 @@
 export default function Instance(name) {
   this.name = name;
-  var _scene;
+  this._scene;
   //actions & events that the instance can performs anywhere
   var _actions = {};
-  var _events = {}; //events that this instance is listenering
-  this.setScene = function (scene) {
-    _scene = scene;
-  };
-  this.getScene = function () {
-    return _scene;
-  };
+  this._events = {}; //events that this instance is listenering
 
   this.registerAction = function (action) {
     _actions[action.name] = action;
@@ -19,20 +13,31 @@ export default function Instance(name) {
   this.getActions = function () {
     return _actions;
   };
-
-  this.getSceneAction = function (name) {
-    return _scene.getActions().name || _scene.getParent().getActions()[name]; //should be recursive
-  };
-
-  //   this.registerEvent = function (event, callback) {
-  //     _events[event.name] = { event, callback };
-  //     event.registerListener(this);
-  //   };
-
-  //   this.getEvent = function (name) {
-  //     return _events[name].event;
-  //   };
-  //   this.getEventCallback = function (name) {
-  //     return _events[name].callback;
-  //   };
 }
+
+Instance.prototype.getEvents = function () {
+  return this._events;
+};
+
+Instance.prototype.registerEvent = function (event, callback) {
+  this._events[event.name] = { event, callback };
+  event.registerListener(this);
+};
+
+Instance.prototype.getEventCallback = function (name) {
+  return this._events[name].callback;
+};
+
+Instance.prototype.setScene = function (scene) {
+  return (this._scene = scene);
+};
+
+Instance.prototype.getScene = function () {
+  return this._scene;
+};
+
+Instance.prototype.getSceneAction = function (name) {
+  return (
+    this._scene.getActions().name || this._scene.getParent().getActions()[name]
+  ); //should be recursive
+};

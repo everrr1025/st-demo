@@ -3,7 +3,7 @@ import Human from "../modules/Human";
 import { move, speak } from "../actions/actions";
 import { dark } from "../events/events";
 
-var jason = new Human({ gender: "male", name: "jason" });
+var jason = new Human("jason", "male");
 
 //properties
 

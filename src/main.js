@@ -6,9 +6,8 @@ import hongda from "./instances/hongda";
 import jason from "./instances/jason";
 
 house.registerScene(salon);
-house.registerScene(bedroom); //
+house.registerScene(bedroom);
 
 bedroom.registerInstances(hongda);
 salon.registerInstances(jason);
-
-hongda.getSceneAction("stolen").perform(hongda);
+hongda.getSceneAction("powerOff").perform(hongda);

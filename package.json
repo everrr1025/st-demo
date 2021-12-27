@@ -2,7 +2,7 @@
   "name": "st-demo",
   "version": "1.0.0",
   "description": "demo of stJS",
-  "main": "dev-server.js",
+  "main": "",
   "author": "everrr1025 <2037894@qq.com>",
   "license": "MIT",
   "scripts": {
