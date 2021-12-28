@@ -3,7 +3,7 @@ import Human from "../modules/Human";
 import { move, speak } from "../actions/actions";
 import { dark } from "../events/events";
 
-var hongda = new Human("hongda", "male");
+var hongda = new Human("达哥", "male");
 
 //properties
 

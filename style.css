@@ -1,0 +1,32 @@
+#scene {
+  height: 200px;
+}
+
+#msg {
+  margin-top: 1rem;
+}
+
+.parentScene {
+  border: 1px solid black;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.child {
+  display: flex;
+}
+.childScene {
+  border: 1px solid black;
+  padding-right: 1rem;
+}
+
+.instance {
+  color: rgba(14, 22, 240, 0.646);
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#msg {
+  color: cornflowerblue;
+}

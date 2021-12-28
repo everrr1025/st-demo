@@ -2,7 +2,7 @@ import Scene from "../modules/Scene";
 import Action from "../modules/Action";
 import { dark, hungry } from "../events/events";
 
-var house = new Scene("house");
+var house = new Scene("我的家");
 
 house.properties = {
   power: "on",

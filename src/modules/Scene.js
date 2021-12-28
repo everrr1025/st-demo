@@ -2,9 +2,9 @@ export default function Scene(name) {
   this.name = name;
   this.properties = {};
 
-  var _instances = [];
+  var _instances = {};
   var _actions = {};
-  var _events = [];
+  var _events = {};
   var _parentScene;
   var _childScenes = {};
 
@@ -26,17 +26,24 @@ export default function Scene(name) {
   };
 
   this.registerInstances = function (instance) {
-    _instances.push(instance);
+    _instances[instance.name] = instance;
     instance.setScene(this);
+  };
+
+  this.unregisterInstances = function (instance) {
+    delete _instances[instance.name];
   };
   this.registerActions = function (action) {
     _actions[action.name] = action;
     action.setOwner(this);
   };
   this.registerEvents = function (event) {
-    _events.push(event);
+    _events[event.event.name] = event;
+    event.event.registerListener(this);
   };
-
+  this.getEventCallback = function (name) {
+    return this.getEvents()[name].callback;
+  };
   this.getInstances = function () {
     return _instances;
   };

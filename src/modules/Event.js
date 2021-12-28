@@ -1,6 +1,7 @@
 export default function Event(name) {
   this.name = name;
   this._listener = [];
+  this.additionInfo = {};
 }
 
 Event.prototype.registerListener = function (instance) {

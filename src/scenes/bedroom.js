@@ -1,10 +1,9 @@
-import Scene from '../modules/Scene'
+import Scene from "../modules/Scene";
 
-var bedroom = new Scene('bedroom');
+var bedroom = new Scene("卧室");
 
 bedroom.properties = {
-     area:16 //square meters
-}
-
+  area: 16, //square meters
+};
 
 export default bedroom;
