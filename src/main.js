@@ -9,7 +9,7 @@ import jason from "./instances/jason";
 import laohuang from "./instances/laohuang";
 //state
 
-import { printScene, getMessage } from "./utils/print";
+import { printScene, getMessage, setIntervalId } from "./utils/print";
 
 house.registerScene(salon);
 house.registerScene(bedroom);
@@ -23,15 +23,16 @@ wc.registerInstances(laohuang);
 //hongda.getSceneAction("powerOff").perform(hongda);
 printScene(house);
 setInterval(() => {
+  setIntervalId(Date.now());
   var random = Math.floor(Math.random() * 10 + 1);
   if ([1, 2, 3, 4].includes(random)) {
     hongda.move({}, salon);
-  } else if ([5, 6].includes(random)) {
+  } else if ([5].includes(random)) {
     hongda.move({}, wc);
   } else if ([7, 8].includes(random)) {
     jason.move({}, wc);
   } else {
-    jason.move({}, bedroom);
+    jason.move({}, kitchen.getChildScenes()["储藏室"]);
   }
   printScene(house);
 }, 3000);

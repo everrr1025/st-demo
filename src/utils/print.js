@@ -1,16 +1,29 @@
 //module to print
 
-let _message = [];
+let _message = {};
+let _intervalId;
+
+function setIntervalId(id) {
+  _intervalId = id;
+}
 
 function getMessage() {
-  return _message;
+  console.log(Object.keys(_message).length);
+  return Object.values(_message);
 }
 
 function setMessage(msg) {
-  if (_message.length == 20) {
-    _message.shift();
+  // if (Object.keys(_message).length == 5) {
+  //   console.log(`deleting`);
+  //   delete _message[Object.keys(_message)[0]];
+  // }
+  if (!_message[_intervalId]) {
+    if (Object.keys(_message).length == 10) {
+      delete _message[Object.keys(_message)[0]];
+    }
+    _message[_intervalId] = [];
   }
-  _message.push(msg);
+  _message[_intervalId].push(msg);
 }
 
 function _createScene(node, scene) {
@@ -56,4 +69,4 @@ function printScene(scene) {
   });
 }
 
-export { printScene, setMessage, getMessage };
+export { printScene, setMessage, getMessage, setIntervalId };

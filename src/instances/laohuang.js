@@ -21,10 +21,8 @@ laohuang.registerEvent(newVistor, () => {
     laohuang.getScene().name == "厕所"
   ) {
     setMessage(`老黄在厕所遇到了${newVistor.additionInfo.instance.name}`);
-    console.log(`老黄在厕所遇到了${newVistor.additionInfo.instance.name}`);
     if (newVistor.additionInfo.instance.name === "毅哥") {
       setMessage(`老黄和毅哥一起拉了起来`);
-      console.log(`老黄和毅哥一起拉了起来`);
     }
   }
 });
