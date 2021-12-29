@@ -13,10 +13,6 @@ function getMessage() {
 }
 
 function setMessage(msg) {
-  // if (Object.keys(_message).length == 5) {
-  //   console.log(`deleting`);
-  //   delete _message[Object.keys(_message)[0]];
-  // }
   if (!_message[_intervalId]) {
     if (Object.keys(_message).length == 10) {
       delete _message[Object.keys(_message)[0]];
@@ -30,6 +26,9 @@ function _createScene(node, scene) {
   var parent = document.createElement("div");
   var parentName = document.createTextNode(scene.name);
   parent.setAttribute("class", "parentScene");
+
+  parent.style.width = scene.properties.width + "rem";
+  parent.style.height = scene.properties.height + "rem";
   parent.appendChild(parentName);
 
   if (Object.values(scene.getChildScenes()).length > 0) {
@@ -45,6 +44,7 @@ function _createScene(node, scene) {
 
   Object.values(scene.getInstances()).forEach((human) => {
     var humanDiv = document.createElement("div");
+    //  hunmanDiv.setAttribute("class", "instance");
     humanDiv.appendChild(document.createTextNode(human.name));
 
     instance.appendChild(humanDiv);
@@ -59,6 +59,8 @@ function printScene(scene) {
   var sceneNode = document.getElementById("scene");
   sceneNode.innerHTML = "";
   _createScene(sceneNode, scene);
+
+  //print message
   var msgContainer = document.getElementById("msg");
   msgContainer.innerHTML = "";
   getMessage().forEach((msg) => {

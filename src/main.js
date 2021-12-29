@@ -25,12 +25,14 @@ printScene(house);
 setInterval(() => {
   setIntervalId(Date.now());
   var random = Math.floor(Math.random() * 10 + 1);
-  if ([1, 2, 3, 4].includes(random)) {
+  if ([1, 2, 3].includes(random)) {
     hongda.move({}, salon);
   } else if ([5].includes(random)) {
     hongda.move({}, wc);
   } else if ([7, 8].includes(random)) {
     jason.move({}, wc);
+  } else if ([4].includes(random)) {
+    jason.move({}, kitchen);
   } else {
     jason.move({}, kitchen.getChildScenes()["储藏室"]);
   }

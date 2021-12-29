@@ -7,9 +7,7 @@ function setMsg(msg) {
 setInterval(() => {
   var msg = [];
   var random = Math.floor(Math.random() * 10 + 1);
-  msg.push(random);
-  msg.push(random);
-  msgArray.push(msg);
+  setMsg(random);
   printMsg();
 }, 3000);
 

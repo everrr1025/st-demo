@@ -4,7 +4,8 @@ import { setMessage } from "../utils/print";
 var wc = new Scene("厕所");
 
 wc.properties = {
-  area: 10, //square meters
+  width: 5,
+  height: 10,
 };
 wc.registerEvents({
   event: newVistor,

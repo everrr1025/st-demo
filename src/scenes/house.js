@@ -6,6 +6,8 @@ var house = new Scene("我的家");
 
 house.properties = {
   power: "on",
+  width: 45,
+  height: 13,
 };
 
 //properties

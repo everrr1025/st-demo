@@ -1,5 +1,9 @@
+#container {
+  margin: 1rem;
+}
+
 #scene {
-  height: 200px;
+  height: auto;
 }
 
 #msg {
@@ -23,6 +27,7 @@
 
 .instance {
   color: rgba(14, 22, 240, 0.646);
+  font-size: 0.8rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
 }
