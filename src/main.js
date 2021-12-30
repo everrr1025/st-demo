@@ -9,7 +9,12 @@ import jason from "./instances/jason";
 import laohuang from "./instances/laohuang";
 //state
 
-import { printScene, getMessage, setIntervalId } from "./utils/print";
+import {
+  printScene,
+  getMessage,
+  setIntervalId,
+  setMessage,
+} from "./utils/print";
 
 house.registerScene(salon);
 house.registerScene(bedroom);
@@ -22,19 +27,25 @@ wc.registerInstances(laohuang);
 
 //hongda.getSceneAction("powerOff").perform(hongda);
 printScene(house);
-setInterval(() => {
+var intervalId = setInterval(() => {
+  if (!hongda.alive && !jason.alive) {
+    clearInterval(intervalId);
+    alert(`done!`);
+  }
   setIntervalId(Date.now());
   var random = Math.floor(Math.random() * 10 + 1);
-  if ([1, 2, 3].includes(random)) {
+  if ([1, 2].includes(random) && hongda.alive) {
     hongda.move({}, salon);
-  } else if ([5].includes(random)) {
+  } else if ([3, 4].includes(random) && hongda.alive) {
+    hongda.move({}, kitchen);
+  } else if ([5].includes(random) && hongda.alive) {
     hongda.move({}, wc);
-  } else if ([7, 8].includes(random)) {
+  } else if ([6].includes(random) && jason.alive) {
     jason.move({}, wc);
-  } else if ([4].includes(random)) {
+  } else if ([7, 8].includes(random) && jason.alive) {
     jason.move({}, kitchen);
   } else {
-    jason.move({}, kitchen.getChildScenes()["储藏室"]);
+    jason.alive && jason.move({}, kitchen.getChildScenes()["储藏室"]);
   }
   printScene(house);
-}, 3000);
+}, 1000);

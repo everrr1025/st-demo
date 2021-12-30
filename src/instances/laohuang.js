@@ -20,9 +20,9 @@ laohuang.registerEvent(newVistor, () => {
     newVistor.additionInfo.to.name == "厕所" &&
     laohuang.getScene().name == "厕所"
   ) {
-    setMessage(`老黄在厕所遇到了${newVistor.additionInfo.instance.name}`);
+    setMessage(` 老黄在厕所遇到了${newVistor.additionInfo.instance.name}`);
     if (newVistor.additionInfo.instance.name === "毅哥") {
-      setMessage(`老黄和毅哥一起拉了起来`);
+      setMessage(` 老黄和毅哥聊了起来`);
     }
   }
 });
